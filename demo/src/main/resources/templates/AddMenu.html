@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POS System</title>
+    <link rel="icon" type="image/jpg" sizes="16x16" href="http://127.0.0.1:5500/food/logo2.jpg" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+</head>
+
+
+<body>
+    <style>
+        div.a{
+            text-align: center;
+        }
+    </style>
+    
+    <form th:action="@{/process_menu/save}" method="post"
+    enctype="multipart/form-data"
+    style="max-width: 600px; margin: 0 auto;" th:object="${menu}">
+    <div class="a">
+        <h1>เพิ่มรายการ</h1>
+    </div>
+
+        <div class="btn5">
+
+            <br>
+            <div class="form-group1">
+                <label class="col-4 col-form-label">ชื่ออาหาร :  </label>
+                <input type="text" class="form-control" th:field = "*{name}" required
+                >
+            </div>
+            <br>
+            <div class="form-group2">
+                <label class="col-4 col-form-label">ราคา :  </label>
+                <input type="text" class="form-control" th:field = "*{price}" required
+                >
+            </div>
+            <br>
+            <div class="form-group3">
+                <label class="col-4 col-form-label">รายละเอียด :  </label>
+                <input type="text" class="form-control" th:field = "*{detail}" required
+                >
+            </div>
+
+            <br>
+
+            <br>
+            <div>
+            <button type = 'submit' class="btn btn -primary" id="create" onclick="wrong_pass_alert()"> 
+                <div></div>
+                Submit
+                <i class="fas fa-arrow-right"></i>
+            </button>
+            </div>
+        
+        </div>  
+    </form>
+    <div>
+        <button class="btn2"><a  th:href ="@{/menu}">Back</a></button>
+    </div> 
+
+
+    
+</body>
+</html> 
